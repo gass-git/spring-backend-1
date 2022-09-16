@@ -1,12 +1,22 @@
-package entity;
+package app.entity;
 
-import java.sql.Date;
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
+import javax.persistence.*;
 import lombok.*;
+
+/*
+ * Constructor based Injection : 
+ * When you create object by passing all parameters, you basically 
+ * use a constructor injection. It should be done when we have all 
+ * parameter values and we want to create an object with all values 
+ * initialized.(@AllArgsConstructor)
+ *
+ * Setter based Injection: 
+ * We create an object first (uses no arg-constructor) and then update
+ * the dependencies or values later by using setters.(@NoArgsConstructor)
+ * 
+ * https://stackoverflow.com/questions/68314072/why-to-use-allargsconstructor-and-noargsconstructor-together-over-an-entity
+ * 
+ */
 
 /* generates a constructor with no parameters */
 @NoArgsConstructor
@@ -25,19 +35,27 @@ public class Human{
     @Column(name = "last_name")
     private String lastName;
     
-    @Column(name = "date_of_birth")
-    private Date dateOfBirth;
-
-    @Column()
-    private Double height;
+    // This can be improved by using the date of birth
+    @Column
+    private int age;
 
     @Column
-    private Double weight;
+    private float height;
+
+    @Column
+    private float weight;
 
     @Column(name = "fat_percentage")
-    private Double fatPercentage;
+    private float fatPercentage;
 
     // setters
+    public void setFirstName(String firstName){ this.firtsName = firstName; }
+    public void setLastName(String lastName){ this.lastName = lastName; }
+    public void setAge(int age){ this.age = age; }
+    public void setHeight(float height){ this.height = height; }
+    public void setWeight(float weight){ this.weight = weight; }
+    public void fatPercentage(float fatPercentage){this.fatPercentage = fatPercentage;}
+
 
     // getters
 
