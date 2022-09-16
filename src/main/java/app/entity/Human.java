@@ -23,6 +23,11 @@ import lombok.*;
 
 /* generates a constructor with 1 parameter for each field in a class */
 @AllArgsConstructor
+
+/* causes lombok to generate an implementation of the toString() method */
+@ToString
+
+@Builder
 public class Human{
     
     @Id
@@ -30,7 +35,7 @@ public class Human{
     private Long id;
 
     @Column(name = "first_name", nullable = false)
-    private String firtsName;
+    private String firstName;
 
     @Column(name = "last_name")
     private String lastName;
@@ -48,8 +53,9 @@ public class Human{
     @Column(name = "fat_percentage")
     private float fatPercentage;
 
-    // setters
-    public void setFirstName(String firstName){ this.firtsName = firstName; }
+    // -- setters --
+    // writing the setter methods can be avoided by using the @Setters annotation
+    public void setFirstName(String firstName){ this.firstName = firstName; }
     public void setLastName(String lastName){ this.lastName = lastName; }
     public void setAge(int age){ this.age = age; }
     public void setHeight(float height){ this.height = height; }
@@ -57,13 +63,12 @@ public class Human{
     public void fatPercentage(float fatPercentage){this.fatPercentage = fatPercentage;}
 
 
-    // getters
-
-
-    
-    // returns a String representation of the object
-    public String toString(){
-        return "data of the object";
-    }
-
+    // -- getters --
+    // writing the getter methods can be avoided by using the @Getters annotation
+    public String getFirstName(){ return firstName; }
+    public String getLastName() { return lastName; }
+    public int getAge() { return age; }
+    public float getHeight() { return height; }
+    public float getWeight() { return weight; }
+    public float getFatPercentage() { return fatPercentage; }
 }
