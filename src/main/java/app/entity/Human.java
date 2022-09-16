@@ -48,11 +48,11 @@ public class Human{
     
     // This can be improved by using the date of birth
     private int age;
-    private float height;
+    private double height;
     private float weight;
 
     @Column(name = "fat_percentage")
-    private float fatPercentage;
+    private double fatPercentage;
 
     // -- setters --
     // writing the setter methods can be avoided by using the @Setters annotation
