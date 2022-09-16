@@ -27,9 +27,15 @@ import lombok.*;
 /* causes lombok to generate an implementation of the toString() method */
 @ToString
 
+/* annotation that produces complex builder APIs */
 @Builder
+
+/* specifies that the class is an entity and is mapped to a database table */
+@Entity
+
+/* create a table for the entity */
+@Table(name = "clients")
 public class Human{
-    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -41,13 +47,8 @@ public class Human{
     private String lastName;
     
     // This can be improved by using the date of birth
-    @Column
     private int age;
-
-    @Column
     private float height;
-
-    @Column
     private float weight;
 
     @Column(name = "fat_percentage")
@@ -61,7 +62,6 @@ public class Human{
     public void setHeight(float height){ this.height = height; }
     public void setWeight(float weight){ this.weight = weight; }
     public void fatPercentage(float fatPercentage){this.fatPercentage = fatPercentage;}
-
 
     // -- getters --
     // writing the getter methods can be avoided by using the @Getters annotation
