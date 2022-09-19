@@ -68,7 +68,7 @@ public class Human{
     public String getFirstName(){ return firstName; }
     public String getLastName() { return lastName; }
     public int getAge() { return age; }
-    public float getHeight() { return height; }
+    public double getHeight() { return height; }
     public float getWeight() { return weight; }
-    public float getFatPercentage() { return fatPercentage; }
+    public double getFatPercentage() { return fatPercentage; }
 }
