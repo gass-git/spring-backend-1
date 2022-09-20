@@ -22,6 +22,7 @@ import app.repository.HumanRepository;
  */
 @RequestMapping("/api")
 
+@CrossOrigin("http://localhost:8081/")
 public class HumanController {
     
     @Autowired
